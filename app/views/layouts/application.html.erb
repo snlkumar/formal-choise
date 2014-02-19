@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FormalChoise</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>  
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">          
+          <a class="navbar-brand" href="#"><%=current_user.seller.first_name%></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>    
+             <li><%=link_to 'Logout',destroy_user_session_path,:method=>'delete'%></li>          
+          </ul>
+          <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container theme-showcase">
+           <div class="col-lg-4">
+           	 <div class="bs-example">
+              <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+              	<li><a href="#">Profile</a></li>
+                <li><a href="#">Produts</a></li>
+                <li><a href="#">Current Orders</a></li>
+                <li><a href="#">Archive Orders</a></li>
+                <li><a href="#">Message To Admin</a></li>
+              </ul>
+            </div>
+    		</div>
+    		
+		     <div class="col-lg-8" style="background-color: white;">
+				<%=yield%>
+				</div>     
+     
+    </div> 
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "slate" %>
+    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+  </body>
+</html>
