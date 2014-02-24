@@ -30,11 +30,11 @@
     </div>
 
     <div class="container theme-showcase">
-           <div class="col-lg-4">
+           <div class="col-lg-2">
            	 <div class="bs-example">
               <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
               	<li><a href="#">Profile</a></li>
-                <li><a href="#">Produts</a></li>
+                <li><%=link_to "Products",seller_products_path(current_user.seller)%></li>
                 <li><a href="#">Current Orders</a></li>
                 <li><a href="#">Archive Orders</a></li>
                 <li><a href="#">Message To Admin</a></li>
@@ -42,7 +42,7 @@
             </div>
     		</div>
     		
-		     <div class="col-lg-8" style="background-color: white;">
+		     <div class="col-lg-10" style="background-color: white;">
 				<%=yield%>
 				</div>     
      

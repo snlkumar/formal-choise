@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219071104) do
+ActiveRecord::Schema.define(version: 20140224064358) do
+
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "buyers", force: true do |t|
     t.integer  "product_id"
@@ -25,8 +32,59 @@ ActiveRecord::Schema.define(version: 20140219071104) do
     t.datetime "updated_at"
   end
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colors", force: true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.integer  "product_id"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.integer  "seller_id"
+    t.integer  "category_id_id"
+    t.integer  "brand_id_id"
+    t.integer  "seasion_id_id"
+    t.string   "name"
+    t.string   "code"
+    t.string   "description"
+    t.boolean  "status"
+    t.integer  "color_id_id"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "product_id"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seasions", force: true do |t|
+    t.string   "name"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +102,13 @@ ActiveRecord::Schema.define(version: 20140219071104) do
     t.string   "buisness_state"
     t.string   "buisness_city"
     t.string   "buisness_mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.integer  "product_id"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

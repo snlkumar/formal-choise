@@ -1,1 +1,56 @@
-<p>I  am in product index<%=current_user.email%></p>
+<%unless @products.blank?%>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="tables">Products</h1>
+            </div>
+
+            <div class="bs-example table-responsive">
+              <table class="table table-striped table-hover" id="sunil_datatable">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Brand</th>>
+                  <th>Color</th>
+                  <th>Category</th>
+                  <th>Seasion</th>
+                </tr>
+                <tr>
+                  <td>1</td>	
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                   <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                   <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                   <td>Column content</td>
+                  <td>Column content</td>
+                  <td>Column content</td>
+                </tr>               
+              </table>
+            </div><!-- /example -->
+          </div>
+        </div>
+      
+
+<%else%>
+
+<p> Sorry there is no record,<%=link_to "Add Product",new_seller_product_path(current_user.seller),:class=>"btn btn-primary" %></p>
+<%end%>

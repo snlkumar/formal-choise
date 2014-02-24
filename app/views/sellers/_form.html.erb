@@ -46,9 +46,11 @@
   	<div class="clr"></div>	
   	</div>
 <% end %> -->
-             
-              	<%= form_for(@seller) do |f| %>
-              	<div class="clr"></div>
+<div class="row">
+          <div class="col-lg-6 custom-form" >
+            <div class="well">
+              	<%= form_for(@seller,:html=>{:class=>"bs-example form-horizontal"}) do |f| %>
+              	  	<div class="clr"></div>
 				  	<% if @seller.errors.any? %>   
 				      <ul class="alert fade in alert-error">
 				      <% @seller.errors.full_messages.each do |msg| %>
@@ -58,55 +60,54 @@
 				    
 				  <% end %>
                 <fieldset>
-                  <legend>Legend</legend>
+                  <legend>New Seller</legend>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label"><%=f.label :first_name%></label>
-                    <div class="col-lg-4">
-                      <%= f.text_field :first_name, :required => true %>
+                    <%=f.label :first_name,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                      <%= f.text_field :first_name, :required => true,:class=>"form-control" %>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label"><%=f.label :last_name%></label>
-                    <div class="col-lg-4">
-                         <%= f.text_field :last_name, :required => true %>                      
+                    <%=f.label :last_name,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                         <%= f.text_field :last_name, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>                  
                   <%= f.fields_for :user do |u| %>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label"><%=u.label :email%></label>
-                    <div class="col-lg-4">
-                      <%= u.email_field :email, :required => true, :autofocus => true,:class=>"text_class" %>
+                    <%=u.label :email,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                      <%= u.email_field :email, :required => true, :autofocus => true,:class=>"form-control" %>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label"><%=u.label :password%></label>
-                    <div class="col-lg-4">
-                         <%= u.password_field :password, :required => true %>                      
+                    <%=u.label :password,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                         <%= u.password_field :password, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label"><%=u.label :password_confirmation%></label>
-                    <div class="col-lg-4">
-                         <%= u.password_field :password_confirmation, :required => true %>                      
+                    <%=u.label :password_confirmation,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                         <%= u.password_field :password_confirmation, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>
                   <%end%>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label"><%=f.label :address%></label>
-                    <div class="col-lg-4">
-                      <%= f.text_field :address, :required => true %>
+                    <%=f.label :address,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                      <%= f.text_field :address, :required => true,:class=>"form-control" %>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label"><%=f.label :mobile%></label>
-                    <div class="col-lg-4">
-                         <%= f.text_field :mobile, :required => true %>                      
+                    <%=f.label :mobile,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                         <%= f.text_field :mobile, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="col-lg-4 col-lg-offset-2">
-                      <button class="btn btn-default">Cancel</button> 
-                      <button type="submit" class="btn btn-primary">Submit</button> 
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <%= f.submit "Sign in",:class=>"btn btn-primary" %>
                     </div>
                   </div>
                 </fieldset>
