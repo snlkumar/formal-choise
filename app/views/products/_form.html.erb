@@ -1,7 +1,7 @@
    <div class="row">
           <div class="col-lg-12 cufstom-form" >
             <div class="well">
-              	<%= form_for [@seller,@product],:html=>{:class=>"bs-example form-horizontal"} do |f| %>
+              	<%= nested_form_for [@seller,@product],:html=>{:class=>"bs-example form-horizontal",:multipart => true} do |f| %>
               	  	<div class="clr"></div>
 				  	<% if @product.errors.any? %>   
 				      <ul class="alert fade in alert-error">
@@ -13,67 +13,69 @@
 				  <% end %>
                 <fieldset>
                   <legend>New Seller</legend>
+                  <div class="col-lg-6">                  
                   <div class="form-group">
                     <%=f.label :name,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                       <%= f.text_field :name, :required => true,:class=>"form-control" %>
+                      <%=f.hidden_field :seller_id,value: @seller.id%>
                     </div>
                   </div>
                   <div class="form-group">
                     <%=f.label :description,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                          <%= f.text_field :description, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>                
                  
                   <div class="form-group">
                     <%=f.label :price,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                     	<span class="input-group-addon col-lg-2 ccontrol-label">$</span>
                       <%= f.text_field :price, :required => true, :autofocus => true,:class=>"cform-control" %>
                     </div>
                   </div>
                   <div class="form-group">
                     <%=f.label :brand,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                          <%= f.text_field :brand, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>
                   <div class="form-group">
                     <%=f.label :category,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                          <%= f.text_field :category, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>
                  
                   <div class="form-group">
                     <%=f.label :seasion,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                       <%= f.text_field :seasion, :required => true,:class=>"form-control" %>
                     </div>
                   </div>
                   <div class="form-group">
                     <%=f.label :color,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                          <%= f.text_field :color, :required => true,:class=>"form-control" %>                      
                     </div>
                   </div>
                   
-               
-                <div class="right-6px">
-                	<div class="form-group">
-                    <%=f.label :name,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
-                      <%= f.text_field :name, :required => true,:class=>"form-control" %>
-                    </div>
+                  
                   </div>
-                  <div class="form-group">
-                    <%=f.label :description,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-4">
-                         <%= f.text_field :description, :required => true,:class=>"form-control" %>                      
-                    </div>
-                  </div>         
-                </div>
+                  <div class="col-lg-6">
+                  	
+                  	<%=f.fields_for :images,:multiple => true do |i|%>
+                  	<%=render 'images',:i=>i%>
+                  	 <%= i.link_to_remove "Remove this image" %>                	                
+                     <%end%>
+                 <p><%= f.link_to_add "Add More", :images %></p>
+                  	
+                  </div>
+                  
+                  
+               
+                
                  </fieldset>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">

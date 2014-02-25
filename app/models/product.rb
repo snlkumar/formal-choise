@@ -9,4 +9,5 @@ class Product < ActiveRecord::Base
   has_many :ratings  
   has_many :images
   has_many :buyers
+  accepts_nested_attributes_for :images, allow_destroy: true
 end

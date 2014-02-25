@@ -11,6 +11,8 @@ gem 'twitter-bootswatch-rails-fontawesome'
 
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
+gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
+gem 'paperclip'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

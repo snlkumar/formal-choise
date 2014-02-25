@@ -1,0 +1,7 @@
+<div class="form-group">
+                    <%=i.label :image,:class=>"col-lg-2 control-label"%><%=image_tag(i.object.image.url,height: 60,width: 60) unless i.object.blank?%>
+                    <div class="col-lg-8">
+                      <%= i.file_field :image,:class=>"form-control" %>
+                    </div>
+                    
+                  </div>       
