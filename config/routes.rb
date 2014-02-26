@@ -10,7 +10,13 @@ FormalChoise::Application.routes.draw do
   end
   resources :buyers
   resources :images
-  
+  resources :brands
+  resources :categories
+  resources :seasions
+  resources :tags
+  resources :colors
+  resources :reviews
+  resources :ratings
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)

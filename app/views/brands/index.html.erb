@@ -1,0 +1,64 @@
+
+<div class="row">
+          <div class="col-lg-12 cufstom-form" >
+            <div class="well">
+              	<%= form_for @brand,:html=>{:class=>"bs-example form-horizontal"} do |f| %>
+              	  	<div class="clr"></div>
+				  	<% if @brand.errors.any? %>   
+				      <ul class="alert fade in alert-error">
+				      <% @brand.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    
+				  <% end %>
+                <fieldset>
+                  <legend>New Brand</legend>
+                  <div class="col-lg-6">                  
+                  <div class="form-group">
+                    <%=f.label :name,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                      <%= f.text_field :name, :required => true,:class=>"form-control" %>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="col-lg-6"> 
+                  <div class="form-group">
+                    <%=f.label :status,:class=>"col-lg-2 control-label"%>
+                    <div class="col-lg-8">
+                    	<div class="radio">
+                        <label>
+                          <input type="radio" name="status" id="active_status" value="1" checked="">
+                          Active
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="status" id="inactive_status" value="0">
+                          Inactive
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  </fieldset>
+                  <div class="form-group">
+                    <div class="col-lg-12 col-lg-offset-3">
+                      <button class="btn btn-danger" id="clear_brand">Clear</button> 
+                      <button class="btn btn-primary" id="save_brand">Save</button> 
+                      <button  class="btn btn-primary" id="update_brand" disabled="disabled" brand_id="">Update</button>
+                    </div>
+                  </div>
+                  <%end%>
+                   <fieldset>                  	
+                  	<div id="brand-list">
+                  	<%=render 'brands'%>
+                  	</div>
+                  </fieldset>
+                  </div>
+                 
+                  
+                  </div></div>
+
+
+

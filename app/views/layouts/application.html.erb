@@ -33,13 +33,30 @@
     <div class="container theme-showcase">
            <div class="col-lg-2">
            	 <div class="bs-example">
-              <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+           	 	
+              <!-- <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
               	<li><a href="#">Profile</a></li>
+              	<li><%link_to 'Brands',brands_path%></li>
+                <li><%=link_to "Products",seller_products_path(current_user.seller)%></li>
+                <li><a href="#">Current Orders</a></li>
+                <li><a href="#">Archive Orders</a></li>
+                <li><a href="#">Message To Admin</a></li>
+              </ul> -->
+             
+               <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+              	<li><a href="#">Profile</a></li>
+              	<li><%=link_to 'Brands',brands_path%></li>
+              	<li><%=link_to 'Product Categories',categories_path%></li>
+              	<li><%=link_to 'Colors',colors_path%></li>
+              	<li><%=link_to 'Seasions',seasions_path%></li>
+              	<li><%=link_to 'Tags',tags_path%></li>
+              	<li><%=link_to 'Sellers',sellers_path%></li>
                 <li><%=link_to "Products",seller_products_path(current_user.seller)%></li>
                 <li><a href="#">Current Orders</a></li>
                 <li><a href="#">Archive Orders</a></li>
                 <li><a href="#">Message To Admin</a></li>
               </ul>
+             
             </div>
     		</div>
     		
