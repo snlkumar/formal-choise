@@ -2,14 +2,14 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.references :seller
-      t.references :category_id
-      t.references :brand_id
-      t.references :seasion_id
+      t.references :category
+      t.references :brand
+      t.references :seasion
       t.string :name
       t.string :code
       t.string :description
       t.boolean :status
-      t.references :color_id
+      t.references :color
       t.float :price
       t.timestamps
     end

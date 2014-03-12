@@ -1,3 +1,7 @@
+
+
+
+
 <%unless @products.blank?%>
 
         <div class="row">
@@ -24,10 +28,10 @@
 	                  <td>1</td>	
 	                  <td><%=pro.name%></td>
 	                  <td><%=pro.description%></td>
-	                  <td><%=pro.name%></td>
-	                  <td><%=pro.description%></td>
-	                  <td><%=pro.name%></td>
-	                  <td><%=pro.description%></td>
+	                  <td><%=pro.brand.name unless pro.brand.blank?%></td>
+	                  <td><%=pro.color.name unless pro.color.blank?%></td>
+	                  <td><%=pro.category.name unless pro.category.blank?%></td>
+	                  <td><%=pro.seasion.name unless pro.seasion.blank?%></td>
 	                  <td>
 	                  	<%=link_to image_tag("../assets/view.jpg",height: 20,width: 20),seller_product_path(@seller,pro)%> | <%=link_to image_tag("../assets/edit.jpg",height: 20,width: 20),edit_seller_product_path(@seller,pro)%> | <%=link_to image_tag("../assets/delete1.jpg",height: 20,width: 20),seller_product_path(@seller,pro),method: "delete"%>
 	                  </td>

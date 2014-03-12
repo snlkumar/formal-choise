@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(version: 20140225064432) do
 
   create_table "products", force: true do |t|
     t.integer  "seller_id"
-    t.integer  "category_id_id"
-    t.integer  "brand_id_id"
-    t.integer  "seasion_id_id"
+    t.integer  "category_id"
+    t.integer  "brand_id"
+    t.integer  "seasion_id"
     t.string   "name"
     t.string   "code"
     t.string   "description"
     t.boolean  "status"
-    t.integer  "color_id_id"
+    t.integer  "color_id"
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"

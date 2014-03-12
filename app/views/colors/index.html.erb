@@ -2,7 +2,7 @@
 <div class="row">
           <div class="col-lg-12 cufstom-form" >
             <div class="well">
-              	<%= form_for @brand,:html=>{:class=>"bs-example form-horizontal"} do |f| %>
+              	<%= form_for @color,:html=>{:class=>"bs-example form-horizontal"} do |f| %>
               	  	<div class="clr"></div>		  
 		            <div id="brand_notice" class="alert alert-dismissable">
 		              <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -10,7 +10,7 @@
 		            </div>
           
                 <fieldset>
-                  <legend>New Brand</legend>
+                  <legend>New Color</legend>
                   <div class="col-lg-6">                  
                   <div class="form-group">
                     <%=f.label :name,:class=>"col-lg-2 control-label"%>
@@ -41,15 +41,15 @@
                   </fieldset>
                   <div class="form-group">
                     <div class="col-lg-12 col-lg-offset-3">
-                      <button class="btn btn-danger" id="clear_brand">Clear</button> 
-                      <button class="btn btn-primary" id="save_brand">Save</button> 
-                      <button  class="btn btn-primary" id="update_brand" disabled="disabled" brand_id="">Update</button>
+                      <button class="btn btn-danger" id="clear_color">Clear</button> 
+                      <button class="btn btn-primary" id="save_color">Save</button> 
+                      <button  class="btn btn-primary" id="update_color" disabled="disabled" color_id="">Update</button>
                     </div>
                   </div>
                   <%end%>
                    <fieldset>                  	
-                  	<div id="brand-list">
-                  	<%=render 'brands'%>
+                  	<div id="color-list">
+                  	<%=render 'colors'%>
                   	</div>
                   </fieldset>
                   </div>
