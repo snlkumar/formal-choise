@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
      'slate'
     end
   end
+  
+  def activate_user
+    
+  end
 end

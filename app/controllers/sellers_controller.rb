@@ -3,6 +3,10 @@ class SellersController < ApplicationController
     @seller=Seller.new
      @seller.build_user
   end
+  
+  def index
+    @sellers=Seller.all.order('updated_at DESC') 
+  end
   def create
     @seller=Seller.new(person_params)
     if @seller.save

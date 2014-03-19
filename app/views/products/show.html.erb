@@ -1,0 +1,33 @@
+ <div class="col-lg-6 product-show">
+ 	 <script type="text/javascript">
+            CloudZoom.quickStart();
+        </script>
+	<!-- <%@product.images.each do |image|%>
+	<%=image_tag(image.image.url,height: 500,width: 400) unless image.blank?%>
+    <%end%> -->
+     <img class = "cloudzoom" src = "<%=@product.images.first.image.url(:small)%>"
+             data-cloudzoom = "zoomImage: '<%=@product.images.first.image.url(:large)%>'" />
+        <br/>
+        <%@product.images.each do |image|%>
+        <img class = 'cloudzoom-gallery' src = "<%=image.image.url(:thumb)%>" data-cloudzoom = "useZoom: '.cloudzoom', image: '<%=image.image.url(:small)%>', zoomImage: '<%=image.image.url(:large)%>' " >
+       <%end%>
+        
+</div>
+<div class="col-lg-6">
+	<h3>Name</h3>
+	<%=@product.name%>
+	<h3>Description</h3>
+	<%=@product.description%>
+	<h3>Brand</h3>
+	<%=@product.brand%>
+	<h3>Color</h3>
+	<%=@product.color%>
+	<h3>Seasion</h3>
+	<%=@product.seasion%>
+	<h3>Category</h3>
+	<%=@product.category%>
+	<h3>Tags</h3>
+	<%=@product.tags%>
+    <h3>Reviews</h3>
+    <%=@product.reviews%>
+</div> 

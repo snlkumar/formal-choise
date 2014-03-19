@@ -21,7 +21,12 @@
           <div class="col-lg-6 custom-form" >
             <div class="well">
             	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html=>{:class=>"bs-example form-horizontal"}) do |f| %>
+ 				  <%= resource.errors.count %>
+   
+        
+
  				  <fieldset>
+ 				  	
  				  	<legend>Sign In</legend>
  				  <div class="form-group">
 				  	<%= f.label :email,:class=>"col-lg-2 control-label" %>
