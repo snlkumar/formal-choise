@@ -1,7 +1,10 @@
 FormalChoise::Application.routes.draw do
   resources :homes
-  devise_for :users
-  
+  # devise_for :users
+  devise_for :users,:skip => [:sessions]
+  as :user do
+    get 'admin/signin' => 'devise/sessions#new', :as => :admin_new_user_session
+  end
    root :to => "homes#index"
   resources :sellers do
     resources :products do
