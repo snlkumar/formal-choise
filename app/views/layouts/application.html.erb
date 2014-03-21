@@ -14,7 +14,7 @@
     <div class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">          
-          <a class="navbar-brand" href="#"><%=current_user.seller.first_name%></a>
+          <a class="navbar-brand" href="#"><%=current_user.seller.first_name unless current_user.admin?  %></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -33,30 +33,28 @@
     <div class="container theme-showcase">
            <div class="col-lg-2">
            	 <div class="bs-example">
-           	 	
-              <!-- <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
-              	<li><a href="#">Profile</a></li>
-              	<li><%link_to 'Brands',brands_path%></li>
-                <li><%=link_to "Products",seller_products_path(current_user.seller)%></li>
-                <li><a href="#">Current Orders</a></li>
-                <li><a href="#">Archive Orders</a></li>
-                <li><a href="#">Message To Admin</a></li>
-              </ul> -->
-             
-               <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
-              	<li><a href="#">Profile</a></li>
-              	<li><%=link_to 'Brands',brands_path%></li>
+           	 	<%if current_user.admin?%>
+               <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">              	
+              	<li>
+              		<%= link_to raw("Brands <span class='badge'>#{Brand.all.count}</span>"),brands_path %>
+              	</li>
               	<li><%=link_to 'Product Categories',categories_path%></li>
-              	<li><%=link_to 'Colors',colors_path%></li>
+              	<li><%=link_to raw("Colors <span class='badge'>#{Color.all.count}</span>"),colors_path%></li>
               	<li><%=link_to 'Seasions',seasions_path%></li>
               	<li><%=link_to 'Tags',tags_path%></li>
-              	<li><%=link_to 'Sellers',sellers_path%></li>
+              	<li><%=link_to raw("Sellers <span class='badge'>#{Seller.all.count}</span>"),sellers_path%></li>                
+                <li><a href="#">Current Orders</a></li>
+                <li><a href="#">Archive Orders</a></li>
+              </ul> 
+             <%else%>
+               <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+              	<li><a href="#">Profile</a></li>              	
                 <li><%=link_to "Products",seller_products_path(current_user.seller)%></li>
                 <li><a href="#">Current Orders</a></li>
                 <li><a href="#">Archive Orders</a></li>
                 <li><a href="#">Message To Admin</a></li>
               </ul>
-             
+             <%end%>
             </div>
     		</div>
     		

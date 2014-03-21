@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+  before_filter :login_required,:except=>[:product_show]
   def index
     @seller=current_user.seller
     @products=@seller.products    
@@ -38,6 +38,10 @@ class ProductsController < ApplicationController
   def show
     @seller=Seller.find params[:seller_id]
     @product=Product.find params[:id]
+  end
+  def product_show
+    @product=Product.find params[:id]
+    render layout: 'user'
   end
   private
   def product_params

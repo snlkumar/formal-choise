@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  acts_as_votable
   belongs_to :seller
   belongs_to :brand
   belongs_to :category

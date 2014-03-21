@@ -20,11 +20,8 @@
         <div class="row">
           <div class="col-lg-6 custom-form" >
             <div class="well">
-            	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html=>{:class=>"bs-example form-horizontal"}) do |f| %>
- 				  <%= resource.errors.count %>
-   
-        
-
+            	<%= form_for(resource, :as => resource_name, :url => user_session_path,:html=>{:class=>"bs-example form-horizontal"}) do |f| %>
+ 				 <%= render 'devise/shared/messages', model: resource %>
  				  <fieldset>
  				  	
  				  	<legend>Sign In</legend>

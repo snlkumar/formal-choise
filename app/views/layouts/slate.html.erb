@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Formal Choise" %></title>
-    <%= csrf_meta_tags %>
+    <title>FormalChoise</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+   <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
 
-    <%= stylesheet_link_tag "slate", :media => "all" %>  
-  <%= javascript_include_tag "slate" %>
-   <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+    
+   <script type="text/javascript">
+   	$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+   </script>
   </head>
-  <body style="height: 100%">  
+  <body style="background-color: #CAC9C4;">  
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default">
@@ -50,19 +52,32 @@
       </div>
     </div>
 
-    <div class="container theme-showcase">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-      	
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-      </div>
-     <div style="background-color: white;">
+    <div class="container theme-showcase">   
+      	<ul class="bxslider" >
+		  <li><img src="../assets/small/image1.jpg"/></li>
+		  <li><img src="../assets/small/image2.jpg" /></li>
+		  <li><img src="../assets/small/image3.jpg" /></li>
+		  </ul>
+     <div class="col-lg-3" style="color: black;border: 1px;float:right;width:250px;background:white;">
+     	<ul>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		
+     	</ul>
+     </div>
+      <!-- Main jumbotron for a primary marketing message or call to action -->      
+     <div class="col-lg-9" style="background-color: white; color: black;">     	 
 		<%=yield%>
 		</div>
-    </div> <!-- /container -->
+    </div> 
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+     
+     
+    <!-- /container -->
 
     <!-- Javascripts
     ================================================== -->

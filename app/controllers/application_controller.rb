@@ -5,13 +5,23 @@ class ApplicationController < ActionController::Base
   # layout 'slate'
   layout :choose_layout
   def choose_layout
-    if current_user && current_user.seller
-    'application'
-    else
+    unless current_user
      'slate'
-    end
+     else
+      if current_user.seller || current_user.admin
+       'application'
+      end
+    end    
+  end
+  def admin_reseller_required
+     
   end
   
+  def login_required
+    unless current_user
+      redirect_to root_path
+    end
+  end
   def activate_user
     
   end
