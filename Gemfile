@@ -13,7 +13,7 @@ gem 'acts_as_votable', '~> 0.8.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
-# gem 'pg'
+gem 'pg'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 gem 'paperclip'
 
