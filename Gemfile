@@ -9,8 +9,7 @@ gem 'twitter-bootswatch-rails', '~> 3.1'
 gem 'twitter-bootswatch-rails-helpers', '~> 3.1'
 gem 'twitter-bootswatch-rails-fontawesome'
 gem 'acts_as_votable', '~> 0.8.0'
-gem 'execjs'
-gem 'therubyracer'
+
 
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
