@@ -15,6 +15,7 @@ gem 'rails_12factor', group: :production
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 gem 'pg'
+gem 'friendly_id', '~> 5.0.0'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 gem 'paperclip'
 
