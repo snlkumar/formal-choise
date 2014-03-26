@@ -179,7 +179,9 @@
 		 */
 		var setup = function(){
 			// wrap el in a wrapper
-			el.wrap('<div class="bx-wrapper"><div class="bx-viewport"></div></div>');
+			el.wrap('<div class="bx-wrapper"><div class="bx-viewport" style="-webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+-moz-box-shadow:    7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+box-shadow:         7px 7px 5px 0px rgba(0, 0, 0, 0.75);"></div></div>');
 			// store a namspace reference to .bx-viewport
 			slider.viewport = el.parent();
 			// add a loading div to display while images are loading
