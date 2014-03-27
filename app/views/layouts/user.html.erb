@@ -8,19 +8,18 @@
   <%= csrf_meta_tags %>
 </head>
 
-  <body style="height: 100%;background-color: #0D305C;">  
+  <body style="background-color: #CAC9C4;">  
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">    
-        	<a href="#" id="logo"><img src="../assets/logo1.png" height="54" width="150px" alt=""></a>      
+        	<a href="<%=root_path%>" id="logo"><img src="../assets/logo1.png" height="54" width="150px" alt=""></a>      
           <!-- <a class="navbar-brand" href="#">Formal Choise</a> -->
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/about_us">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><%=link_to 'Login',new_user_session_path%></li>            
           </ul>
@@ -32,13 +31,23 @@
     </div>
 
     <div class="container theme-showcase">
-     <div class="col-lg-3">
-     	sdadasdasd
+     <div class="col-lg-3" style="color: black;border: 1px;float:right;width:250px;background:white;-webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);box-shadow:7px 7px 5px 0px rgba(0, 0, 0, 0.75);">
+     	
+     	<ul>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		
+     	</ul>
      </div>
       <!-- Main jumbotron for a primary marketing message or call to action -->      
-     <div class="col-lg-8" style="background-color: white; color: black;">
+     <div class="col-lg-9" style="background-color: white; color: black;-webkit-box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.75);-moz-box-shadow:7px 7px 5px -5px rgba(0, 0, 0, 0.75);box-shadow:7px 7px 5px -5px rgba(0, 0, 0, 0.75);">     	 
 		<%=yield%>
 		</div>
+    </div> 
     </div> <!-- /container -->
 
     <!-- Javascripts
@@ -49,4 +58,12 @@
     
    
   </body>
+  <br />
+  <footer>
+            <div class="row">
+                <div class="col-lg-12 navbar-default">
+                    <p>Copyright &copy; Company 2013</p>
+                </div>
+            </div>
+        </footer>
 </html>

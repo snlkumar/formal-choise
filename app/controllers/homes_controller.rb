@@ -3,4 +3,7 @@ class HomesController < ApplicationController
   def index
     @products=Product.all
   end
+  def about_us
+    render layout: "user"
+  end
 end

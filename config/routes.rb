@@ -1,6 +1,11 @@
 FormalChoise::Application.routes.draw do
   
-  resources :homes
+  resources :homes do
+    collection do
+      get :about_us
+    end
+  end
+  get 'about_us' =>'homes#about_us'
   # devise_for :users
   devise_for :users,:skip => [:sessions]
   as :user do
