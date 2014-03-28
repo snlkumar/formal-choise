@@ -1,3 +1,4 @@
+
  <div class="col-lg-6 product-show">
  	 <script type="text/javascript">
             CloudZoom.quickStart();
@@ -15,23 +16,36 @@
         
 </div>
 <div class="col-lg-6">
-
-	<h3>Name</h3>
+<div class="row">
+ <div class="col-lg-10 cufstom-form" >
+<div class="well">
+	<h4>Name</h4>
 	<%=@product.name%>
 	
-	<h3>Description</h3>
-	<%=@product.description%>
-	<h3>Brand</h3>
-	<%=@product.brand%>
-	<h3>Color</h3>
-	<%=@product.color%>
-	<h3>Seasion</h3>
-	<%=@product.seasion%>
-	<h3>Category</h3>	
-	<%=@product.category%>
-	<h3>Tags</h3>
-	<%=@product.tags%>
-    <h3>Reviews</h3>
-    <%=@product.reviews%>
+	<h4>Description</h4>
+	<p><%=@product.description%></p>
+	<h4>Brand</h4>
+	<%=@product.brand.name unless @product.brand.blank?%>
+	<h4>Color</h4>
+	<%=@product.color.name unless @product.color.blank?%>
+	<h4>Seasion</h4>
+	<%=@product.seasion.name unless @product.seasion.blank?%>
+	<h4>Category</h4>	
+	<%=@product.category.name unless @product.category.blank? %>
+	<h4>Tags</h4>
+	<%=@product.tags.count%>   
     
+    </div></div></div>
 </div> 
+<div class="row">
+ <div class="col-lg-10 cufstom-form" >
+<div class="well">
+<h3 class="page-header">Reviews</h3>
+ <%unless @product.reviews.blank?%>
+ <%@product.reviews.each do |r|%>
+ <li style="none;">jjjjkjkkj</li>
+ <%end%>
+ <%end%>
+
+</div>
+</div></div>

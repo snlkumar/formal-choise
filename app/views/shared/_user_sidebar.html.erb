@@ -1,0 +1,40 @@
+ 
+ <%@brands=Brand.where(status: true)%>
+    <%@categories=Category.where(status: true)%>
+    <%@seasions=Seasion.where(status: true)%>
+    <%@colors=Color.where(status: true)%>
+ <div class="simple">Brands (<%=@brands.count%>)</div>
+     	<ul class="sidebar">
+     		<%unless @brands.blank?%>
+     		<%@brands.each do |b|%>
+     		<li><%=check_box_tag "brand_id",b.id%> <%=b.name.capitalize%></li>     		
+     		<%end%>
+     		<%end%>
+     	</ul>
+  <div class="simple">Categories (<%=@categories.count%>)</div>    	
+     	<ul class="sidebar">
+     		<%unless @categories.blank?%>
+     		<%@categories.each do |b|%>
+     		<li><%=check_box_tag "brand_id",b.id%> <%=b.name.capitalize%></li>     		
+     		<%end%>
+     		<%end%>
+     	</ul>
+ <div class="simple">Seasions (<%=@seasions.count%>)</div>    	
+     	<ul class="sidebar">
+     		<%unless @seasions.blank?%>
+     		<%@seasions.each do |b|%>
+     		<li><%=check_box_tag "brand_id",b.id%> <%=b.name.capitalize%></li>     		
+     		<%end%>
+     		<%end%>
+     	</ul>
+ <div class="simple">Cost</div>    	
+     	<ul class="sidebar">
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		<li>List A</li>
+     		
+     	</ul>    	
+     	

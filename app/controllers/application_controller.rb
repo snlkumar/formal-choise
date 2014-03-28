@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   # layout 'slate'
   layout :choose_layout
   def choose_layout
+    # @brands=Brand.where(status: true)
+    # @categories=Category.where(status: true)
+    # @seasions=Seasion.where(status: true)
+    # @colors=Color.where(status: true)
     unless current_user
      'slate'
      else

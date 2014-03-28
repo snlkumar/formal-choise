@@ -1,84 +1,11 @@
- 
-       
+            <h3 class="page-header">Products</h3>
+           <div id="buyers_display">
+           	<%=render 'buyers/buyers_wall'%>
+           </div>
 
-          
-                <h3 class="page-header">Products</h3>
-           
-
-            <%unless @products.blank?%>
-             <%@products.each do |product|%>            
-             <%unless product.images.blank?%>
-             <%product.images.each do |image|%>
-             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="<%=product_show_products_path(id: product)%>">
-                    <img class="img-responsive" src=<%=image.image.url(:original)%>>
-                    <div style="text-align: center;">
-                    	<h6>This is name</h6>
-                     <span>$ 45</span>
-                    </div>
-                    
-                </a>
-            </div>
-            <%end%>
-             <%end%>
-             <%end%>
-            <%else%>
-           
-            <%end%>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/product02_resized.png">
-                    <div style="text-align: center;">
-                    	<h6>This is name</h6>
-                     <span>$ 45</span>
-                    </div>
-                    
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/product01_resized.png">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/product77_resized.png">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/product78_resized.png">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/product79_resized.png">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/product80_resized.png">
-                </a>
-            </div>
-             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="../assets/images2.jpg">
-                    <div style="text-align: center;">
-                    	<h6>This is name</h6>
-                     <span>$ 45</span>
-                    </div>
-                </a>
-            </div>
             
                  
 
-       
-
-        
-
-    <!-- /.container -->
-
-    <!-- JavaScript -->
    
 
 

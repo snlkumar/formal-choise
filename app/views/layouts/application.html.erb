@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-  <title>FormalChoise</title>
+  <head>
+    <title>FormalChoise</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   
   <%= csrf_meta_tags %>
-</head>
+  </head>
 
-<body>  
+<body style="background-color: #CAC9C4;">  
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">          
-         <a href="#" id="logo"><img src="../assets/logo1.png" height="54" width="150" alt=""></a>  
+         <a href="#" id="logo"><img src="/../assets/logo1.png" height="54" width="150" alt=""></a>  
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -58,21 +58,21 @@
             </div>
     		</div>
     		
-		     <div class="col-lg-10" style="background-color: white;">
+		     <div class="col-lg-10" style="background-color: white; color: black;-webkit-box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.75);-moz-box-shadow:7px 7px 5px -5px rgba(0, 0, 0, 0.75);box-shadow:7px 7px 5px -5px rgba(0, 0, 0, 0.75);">
 				<%=yield%>
 				</div>     
      
     </div> 
-    <div id="footer" style="background-color: black;">
-      <div class="container">
-        <p class="text-muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
-      </div>
-    </div>
+    
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "slate" %>
-    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
-  </body>
+   
+    </body>
+  <br />
+  <footer>
+            <div class="row">
+                <div class="col-lg-12 navbar-default">
+                    <p>Copyright &copy; Company 2013</p>
+                </div>
+            </div>
+        </footer>
 </html>

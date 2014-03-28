@@ -21,6 +21,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/about_us">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="<%=new_seller_path%>">New Seller</a></li>
             <li><%=link_to 'Login',new_user_session_path%></li>            
           </ul>
           <form class="navbar-form navbar-left">
@@ -31,17 +32,8 @@
     </div>
 
     <div class="container theme-showcase">
-     <div class="col-lg-3" style="color: black;border: 1px;float:right;width:250px;background:white;-webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);box-shadow:7px 7px 5px 0px rgba(0, 0, 0, 0.75);">
-     	
-     	<ul>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		
-     	</ul>
+     <div class="col-lg-3" style="color: black;border: 1px;float:right;width:250px;background:#f5ede3;-webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);-moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.75);box-shadow:7px 7px 5px 0px rgba(0, 0, 0, 0.75);">
+     	<%=render '/shared/user_sidebar'%>
      </div>
       <!-- Main jumbotron for a primary marketing message or call to action -->      
      <div class="col-lg-9" style="background-color: white; color: black;-webkit-box-shadow: 7px 7px 5px -5px rgba(0, 0, 0, 0.75);-moz-box-shadow:7px 7px 5px -5px rgba(0, 0, 0, 0.75);box-shadow:7px 7px 5px -5px rgba(0, 0, 0, 0.75);">     	 
