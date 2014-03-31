@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320111853) do
+ActiveRecord::Schema.define(version: 20140331065943) do
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20140320111853) do
     t.string   "state"
     t.string   "city"
     t.string   "mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,6 +61,25 @@ ActiveRecord::Schema.define(version: 20140320111853) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "line_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.integer  "quantity",                            default: 1
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "price",      precision: 10, scale: 0
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "buyer_id"
+    t.string   "name"
+    t.string   "address"
+    t.string   "contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|

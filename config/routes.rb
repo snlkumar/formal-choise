@@ -24,7 +24,11 @@ FormalChoise::Application.routes.draw do
       get :product_show
     end
   end
-
+  
+  
+  resources :orders
+  resources :line_items
+  resources :carts
   resources :buyers
   resources :images
   resources :brands

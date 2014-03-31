@@ -41,6 +41,8 @@ class ProductsController < ApplicationController
   end
   def product_show
     @product=Product.find params[:id]
+     @cart = Cart.last
+    @line_item=LineItem.new
     render layout: 'user'
   end
   private

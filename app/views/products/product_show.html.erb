@@ -15,6 +15,7 @@
        <%end%>
         
 </div>
+ 
 <div class="col-lg-6">
 <div class="row">
  <div class="col-lg-10 cufstom-form" >
@@ -32,8 +33,9 @@
 	<%=@product.category.name.capitalize unless @product.category.blank? %><br />
 	
 	<span class="loyalty-message">Tags</span><br />
-	<%=@product.tags.count%>   
-    
+	<%=@product.tags.count%> <br />     
+	<%= link_to "Add To Cart", line_items_path(product_id: @product.id),id: "add_to_cart",class: "btn btn-danger" %>
+	 
     </div></div></div>
 </div> 
 <div class="row">
