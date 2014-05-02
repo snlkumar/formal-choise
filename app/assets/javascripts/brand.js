@@ -1,12 +1,14 @@
 //Save brand
 $(document).on("click","#save_brand",function(event){
 	event.preventDefault();
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var url="brands";
 	var name=$("#brand_name").val();
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"brand[name]" : name,
-		"brand[status]" : status
+		"brand[status]" : status,
+		"authenticity_token": token	
 	};
 	$.post(url,inputData,function(data){
 		 $(".alert").show();
@@ -26,6 +28,7 @@ $(document).on("click","#save_brand",function(event){
 
 $(document).on('click',"#edit-brand",function(event){
 	event.preventDefault();
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var name=$(this).attr("name");
 	var status=$(this).attr("status");
 	var id=$(this).attr('brand_id');
@@ -50,6 +53,7 @@ $(document).on('click','#clear_brand',function(e){
 
 //update brand
 $(document).on("click","#update_brand",function(event){
+	var token= $('meta[name="csrf-token"]').attr('content');
 	event.preventDefault();
 	var id=$(this).attr("brand_id");
 	var url="brands/"+id;
@@ -57,7 +61,8 @@ $(document).on("click","#update_brand",function(event){
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"brand[name]" : name,
-		"brand[status]" : status
+		"brand[status]" : status,
+		"authenticity_token": token	
 	};
 			$.ajax({
 		   url: url,
@@ -89,6 +94,7 @@ $(document).on("click","#update_brand",function(event){
    
  $(document).on("click","#delete_brand",function(event){
 	event.preventDefault();
+    var token= $('meta[name="csrf-token"]').attr('content');
 	var id=$(this).attr("brand_id");	
 	var url="brands/"+id;	
 			$.ajax({

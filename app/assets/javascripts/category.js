@@ -2,10 +2,12 @@
 $(document).on("click","#save_category",function(event){
 	event.preventDefault();
 	var url="categories";
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var name=$("#category_name").val();
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"category[name]" : name,
+		"authenticity_token": token,
 		"category[status]" : status
 	};
 	$.post(url,inputData,function(data){
@@ -51,12 +53,14 @@ $(document).on('click','#clear_category',function(e){
 //update brand
 $(document).on("click","#update_category",function(event){
 	event.preventDefault();
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var id=$(this).attr("category_id");
 	var url="categories/"+id;
 	var name=$("#category_name").val();
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"category[name]" : name,
+		"authenticity_token": token,
 		"category[status]" : status
 	};
 			$.ajax({

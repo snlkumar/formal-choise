@@ -4,10 +4,15 @@
           <div class="col-lg-10 cufstom-form" >
             <div class="well">
             	<div class="col-lg-6">
+              	  	<div class="clr"></div>
+                         <h3 class="page-header">Already User?</h3>
+                            <%=link_to 'Login',new_user_session_path,:class=>"btn btn-primary"%>
+            	</div>
+            	<div class="col-lg-6">
             		<%= form_for :@order,:html=>{:class=>"bs-example form-horizontal"} do |f| %>
               	  	<div class="clr"></div>
 				  	             
-                         <h3 class="page-header">Register</h3>
+                         <h3 class="page-header">New User</h3>
                                   
 		                  <div class="form-group">
 		                    <%=f.label :name,:class=>"col-lg-2 control-label"%>
@@ -39,11 +44,7 @@
             	
               	<%= form_for :@order,:html=>{:class=>"bs-example form-horizontal"} do |f| %>
 		                  <div class="clr"></div>
-				  	             
-                         <h3 class="page-header">Register</h3>
-                                               
-		                
-		                  <div class="form-group">
+		                        <div class="form-group">
 		                   
 		                    <div class="col-lg-6">                    	
 		                      <a href="">Login</a>

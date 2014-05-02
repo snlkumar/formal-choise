@@ -1,11 +1,13 @@
 //Save brand
 $(document).on("click","#save_color",function(event){
 	event.preventDefault();
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var url="colors";
 	var name=$("#color_name").val();
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"color[name]" : name,
+		"authenticity_token": token,		
 		"color[status]" : status
 	};
 	$.post(url,inputData,function(data){
@@ -50,6 +52,7 @@ $(document).on('click','#clear_color',function(e){
 
 //update brand
 $(document).on("click","#update_color",function(event){
+	var token= $('meta[name="csrf-token"]').attr('content');
 	event.preventDefault();
 	var id=$(this).attr("color_id");
 	var url="colors/"+id;
@@ -57,6 +60,7 @@ $(document).on("click","#update_color",function(event){
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"color[name]" : name,
+		"authenticity_token": token,
 		"color[status]" : status
 	};
 			$.ajax({

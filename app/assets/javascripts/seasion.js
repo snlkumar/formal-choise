@@ -1,11 +1,13 @@
 //Save brand
 $(document).on("click","#save_seasion",function(event){
 	event.preventDefault();
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var url="seasions";
 	var name=$("#seasion_name").val();
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"seasion[name]" : name,
+		"authenticity_token": token,		
 		"seasion[status]" : status
 	};
 	$.post(url,inputData,function(data){
@@ -51,12 +53,14 @@ $(document).on('click','#clear_seasion',function(e){
 //update brand
 $(document).on("click","#update_seasion",function(event){
 	event.preventDefault();
+	var token= $('meta[name="csrf-token"]').attr('content');
 	var id=$(this).attr("seasion_id");
 	var url="seasions/"+id;
 	var name=$("#seasion_name").val();
 	var status=$("input[name='status']:checked").val();
 	var inputData={
 		"seasion[name]" : name,
+		"authenticity_token": token,		
 		"seasion[status]" : status
 	};
 			$.ajax({
