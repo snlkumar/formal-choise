@@ -1,56 +1,72 @@
+<div class="col-lg-6 product-show">
+	<script type="text/javascript">
+		CloudZoom.quickStart();
+	</script>
 
- <div class="col-lg-6 product-show">
- 	 <script type="text/javascript">
-            CloudZoom.quickStart();
-        </script>
-        
 	<!-- <%@product.images.each do |image|%>
 	<%=image_tag(image.image.url,height: 500,width: 400) unless image.blank?%>
-    <%end%> -->
-     <img class = "cloudzoom" src = "<%=@product.images.first.image.url(:small)%>"
-             data-cloudzoom = "zoomImage: '<%=@product.images.first.image.url(:large)%>'" />
-        <br/>
-        <%@product.images.each do |image|%>
-        <img class = 'cloudzoom-gallery' src = "<%=image.image.url(:thumb)%>" data-cloudzoom = "useZoom: '.cloudzoom', image: '<%=image.image.url(:small)%>', zoomImage: '<%=image.image.url(:large)%>' " >
-       <%end%>
-        
-</div>
- 
-<div class="col-lg-6">
-<div class="row">
- <div class="col-lg-10 cufstom-form" >
-<div class="product_view">
-	
-	<h4><%=@product.name.capitalize%></h4>	
-	 <h3 style="color: red;font: bold;"><%=number_to_currency(@product.price)%></h3>	
-	 <span class="loyalty-message">Brand</span><br />
-	    <%=@product.brand.name.capitalize unless @product.brand.blank?%><br />
-	<span class="loyalty-message">Color</span><br />
-	<%=@product.color.name unless @product.color.blank?%><br />
-	<span class="loyalty-message">Seasion</span><br />
-	<%=@product.seasion.name.capitalize unless @product.seasion.blank?%><br />
-	<span class="loyalty-message">Category</span><br />	
-	<%=@product.category.name.capitalize unless @product.category.blank? %><br />
-	
-	<span class="loyalty-message">Tags</span><br />
-	<%=@product.tags.count%> <br />     
-	<%= link_to "Add To Cart", line_items_path(product_id: @product.id),id: "add_to_cart",class: "btn btn-danger" %>
-	 
-    </div></div></div>
-</div> 
-<div class="row">
- <div class="col-lg-10 cufstom-form" >
-<div class="product_view">
-<span class="loyalty-message">Description</span>
-<hr />
-<p><%=@product.description.capitalize%></p>
-<span class="loyalty-message">Reviews</span>
-<hr />
- <%unless @product.reviews.blank?%>
- <%@product.reviews.each do |r|%>
- <li style="none;">jjjjkjkkj</li>
- <%end%>
- <%end%>
+	<%end%> -->
+	<img class = "cloudzoom" src = "<%= @product.images.first.image.url(:small)%>"
+	data-cloudzoom = "zoomImage: '<%= @product.images.first.image.url(:large)%>'" />
+	<br/>
+	<%@product.images.each do |image|%>
+	<img class = 'cloudzoom-gallery' src = "<%= image.image.url(:thumb)%>" data-cloudzoom = "useZoom: '.cloudzoom', image: '<%= image.image.url(:small)%>', zoomImage: '<%= image.image.url(:large)%>' " >
+	<%end%>
 
 </div>
-</div></div>
+
+<div class="col-lg-6">
+	<div class="row">
+		<div class="col-lg-10 cufstom-form" >
+			<div class="product_view">
+
+				<h4><%= @product.name.capitalize%></h4>
+				<h3 style="color: red;font: bold;"><%= number_to_currency(@product.price)%></h3>
+				<span class="loyalty-message">Brand</span>
+				<br />
+				<%= @product.brand.name.capitalize unless @product.brand.blank?%>
+				<br />
+				<span class="loyalty-message">Color</span>
+				<br />
+				<%= @product.color.name unless @product.color.blank?%>
+				<br />
+				<span class="loyalty-message">Seasion</span>
+				<br />
+				<%= @product.seasion.name.capitalize unless @product.seasion.blank?%>
+				<br />
+				<span class="loyalty-message">Category</span>
+				<br />
+				<%= @product.category.name.capitalize unless @product.category.blank? %>
+				<br />
+
+				<span class="loyalty-message">Tags</span>
+				<br />
+				<%= @product.tags.count%>
+				<br />
+				<%= link_to "Add To Cart", line_items_path(product_id: @product.id),id: "add_to_cart",class: "btn btn-danger" %>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-10 cufstom-form" >
+		<div class="product_view">
+			<span class="loyalty-message">Description</span>
+			<hr />
+			<p>
+				<%= @product.description.capitalize%>
+			</p>
+			<span class="loyalty-message">Reviews</span>
+			<hr />
+			<%unless @product.reviews.blank?%>
+			<%@product.reviews.each do |r|%>
+			<li style="none;">
+				jjjjkjkkj
+			</li>
+			<%end%>
+			<%end%>
+
+		</div>
+	</div>
+</div>
