@@ -7,12 +7,13 @@ FormalChoise::Application.routes.draw do
   end
   get 'about_us' =>'homes#about_us'
   # devise_for :users
-  devise_for :users,:skip => [:sessions]
-  as :user do
-    get 'user/signin' => 'devise/sessions#new', :as => :new_user_session
-    post 'signin' => 'devise/sessions#create', :as => :user_session
-    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
-  end
+  devise_for :users, controllers: { sessions: 'sessions'}
+  # devise_for :users,:skip => [:sessions]
+  # as :user do
+    # get 'user/signin' => 'devise/sessions#new', :as => :new_user_session
+    # post 'signin' => 'devise/sessions#create', :as => :user_session
+    # delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
    root :to => "homes#index"
   resources :sellers do
     resources :products,except: [:product_show] do

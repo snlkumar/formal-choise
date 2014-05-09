@@ -2,6 +2,7 @@ class SellersController < ApplicationController
   def new
     @seller=Seller.new
      @seller.build_user
+     render layout: "user"
   end
   
   def index
