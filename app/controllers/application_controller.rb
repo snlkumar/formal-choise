@@ -27,7 +27,9 @@ class ApplicationController < ActionController::Base
     end
   end
   def activate_user
-    
+    @brands=Brand.all
+    @seasions=Seasion.all
+    @categories=Category.all
   end
   def current_cart 
       Cart.find(session[:cart_id])

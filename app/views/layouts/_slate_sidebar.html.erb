@@ -1,0 +1,39 @@
+
+<ul class="nav nav-list">
+	<li class="nav-header">
+		Brands
+	</li>
+	<%unless @brands.blank?%>
+	  <%@brands.each do |brand|%>
+	  <li>
+		<a href="products.html"><%=brand.name%></a>
+	 </li>
+	 <%end%>
+	<%end%>	
+</ul>
+<ul class="nav nav-list">
+	<li class="nav-header">
+		Categories
+	</li>
+	<%unless @categories.blank?%>
+	  <%@categories.each do |cat|%>
+	  <li>
+		<a href="products.html"><%=cat.name%></a>
+	 </li>
+	 <%end%>
+	<%end%>	
+</ul>
+<ul class="nav nav-list">
+	<li class="nav-header">
+		Seasions
+	</li>
+	<%unless @seasions.blank?%>
+	  <%@seasions.each do |sea|%>
+	  <li>
+		<a href="products.html"><%=sea.name%></a>
+	 </li>
+	 <%end%>
+	<%end%>	
+</ul>
+
+<br/>
