@@ -1,95 +1,86 @@
-   <div class="row">
-          <div class="col-lg-10 cufstom-form" >
-            <div class="well">
-              	<%= nested_form_for [@seller,@product],:html=>{:class=>"bs-example form-horizontal",:multipart => true} do |f| %>
-              	  	<div class="clr"></div>
-				  	<% if @product.errors.any? %>   
-				      <ul class="alert fade in alert-error">
-				      <% @product.errors.full_messages.each do |msg| %>
-				        <li><%= msg %></li>
-				      <% end %>
-				      </ul>
-				    
-				  <% end %>               
-                  <h3 class="page-header">New Product</h3>
-                  <div class="col-lg-6">                  
-                  <div class="form-group">
-                    <%=f.label :name,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                      <%= f.text_field :name, :required => true,:class=>"form-control" %>
-                      <%=f.hidden_field :seller_id,value: @seller.id%>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <%=f.label :description,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                         <%= f.text_field :description, :required => true,:class=>"form-control" %>                      
-                    </div>
-                  </div>                
-                 
-                  <div class="form-group">
-                    <%=f.label :price,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                    	<span class="input-group-addon col-lg-2 ccontrol-label">$</span>
-                      <%= f.text_field :price, :required => true, :autofocus => true,:class=>"cform-control" %>
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <%=f.label :brand,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                    	<%=select(:product, :brand_id, Brand.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" }, { :class => 'form-control' } )%>                                             
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <%=f.label :category,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                    	<%=select(:product, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" }, { :class => 'form-control' } )%>
-                      </div>
-                  </div>
-                 
-                  <div class="form-group">
-                    <%=f.label :seasion,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                    	<%=select(:product, :seasion_id, Seasion.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" }, { :class => 'form-control' } )%>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <%=f.label :color,:class=>"col-lg-2 control-label"%>
-                    <div class="col-lg-8">
-                     <%=select(:product, :color_id, Color.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" }, { :class => 'form-control' } )%>                      
-                    </div>
-                  </div>
-                  
-                  
-                  </div>
-                  <div class="col-lg-6">
-                  	
-                  	<%=f.fields_for :images,:multiple => true do |i|%>
-                  	<%=render 'images',:i=>i%>
-                  	 <%= i.link_to_remove "Remove this image", {:style => 'color: #ccc'}  %>                	                
-                     <%end%>
-                 <p><%= f.link_to_add "Add More", :images, {:style => 'color: #ccc'}  %></p>
-                  	
-                  </div>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <%= f.submit "Sign in",:class=>"btn btn-primary" %>
-                    </div>
-                  </div>
-              <%end%>
-            
-              </div></div>
-          </div>
-          <style type="text/css">
-          	.cform-control{
-          		height: 40px;
-    width: 90%;
-          	}
-          	.ccontrol-label{
-          		height: 39px;
-          	}
-          	.right-6px{
-          		/*margin-left: 50%;*/
-          	}
-          </style>
+<div class="row">
+	<h4 class="title"><span class="text"><strong>New</strong> Product</span></h4>
+	<%= nested_form_for [@seller,@product],:html=>{:class=>"form-stacked",:multipart => true} do |f| %>
+	<div class="clr"></div>
+	<% if @product.errors.any? %>
+	<ul class="alert fade in alert-error">
+		<% @product.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+
+	<% end %>
+
+	<div class="span5">
+		<div class="control-group">
+			<%= f.label :name,:class=>"control-label"%>
+			<div class="controls">
+				<%= f.text_field :name, :required => true %>
+				<%= f.hidden_field :seller_id,value: @seller.id%>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :description,:class=>"control-label"%>
+			<div class="controls">
+				<%= f.text_field :description, :required => true%>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<%= f.label :price,:class=>"control-label"%>
+			<div class="controls">
+				<span class="input-group-addon control-label">$</span>
+				<%= f.text_field :price, :required => true, :autofocus => true %>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<%= f.label :brand,:class=>"control-label"%>
+			<div class="controls">
+				<%= select(:product, :brand_id, Brand.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" })%>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :category,:class=>"control-label"%>
+			<div class="controls">
+				<%= select(:product, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" })%>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<%= f.label :seasion,:class=>"control-label"%>
+			<div class="controls">
+				<%= select(:product, :seasion_id, Seasion.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" })%>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :color,:class=>"control-label"%>
+			<div class="controls">
+				<%= select(:product, :color_id, Color.all.collect {|p| [ p.name, p.id ] }, { :prompt=>"Select Brand" })%>
+			</div>
+		</div>
+
+	</div>
+	<div class="span4">
+
+		<%=f.fields_for :images,:multiple => true do |i|%>
+		<%= render 'images',:i=>i%>
+		<%= i.link_to_remove "Remove this image", {:style => 'color: #ccc'}  %>
+		<%end%>
+		<p>
+			<%= f.link_to_add "Add More", :images, {:style => 'color: #ccc'}  %>
+		</p>
+
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-10 col-lg-offset-2">
+			<%= f.submit "Save",:class=>"btn btn-primary" %>
+		</div>
+	</div>
+	<%end%>
+
+</div>
+
