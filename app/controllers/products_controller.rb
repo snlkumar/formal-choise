@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :login_required,:except=>[:product_show]
+  before_filter :activate_user
   def index
     @seller=current_user.seller
     @products=@seller.products    

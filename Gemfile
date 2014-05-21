@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'devise'
 gem 'execjs'
+gem "unicorn-rails"
 gem 'therubyracer'
 gem 'twitter-bootswatch-rails', '~> 3.1'
 gem 'twitter-bootswatch-rails-helpers', '~> 3.1'
