@@ -39,11 +39,15 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create   
+    if current_user
     @cart = current_cart
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id)   
     @line_item.save
-    render partial: "/carts/cart"   
+    render partial: "/carts/cart"
+    else
+      redirect_to new_buyer_path
+    end   
   end
 
   # PUT /line_items/1

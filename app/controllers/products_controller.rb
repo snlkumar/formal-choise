@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
   end
   def product_show
     @product=Product.find(params[:id],:include=>[:brand,:color,:category])
-     @cart = Cart.last
+    @cart = Cart.last
     @line_item=LineItem.new
     render layout: 'user'
   end

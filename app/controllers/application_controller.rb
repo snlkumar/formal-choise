@@ -9,11 +9,13 @@ class ApplicationController < ActionController::Base
     # @categories=Category.where(status: true)
     # @seasions=Seasion.where(status: true)
     # @colors=Color.where(status: true)
-    unless current_user
+    unless current_user 
      'slate'
      else
       if current_user.seller || current_user.admin
        'application'
+       else
+         'slate'
       end
     end    
   end
