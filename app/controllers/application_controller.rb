@@ -9,35 +9,38 @@ class ApplicationController < ActionController::Base
     # @categories=Category.where(status: true)
     # @seasions=Seasion.where(status: true)
     # @colors=Color.where(status: true)
-    unless current_user 
-     'slate'
-     else
+    unless current_user
+      'slate'
+    else
       if current_user.seller || current_user.admin
-       'application'
-       else
-         'slate'
+        'application'
+      else
+        'slate'
       end
-    end    
+    end
   end
+
   def admin_reseller_required
-     
+
   end
-  
+
   def login_required
     unless current_user
       redirect_to root_path
     end
   end
+
   def activate_user
     @brands=Brand.all
     @seasions=Seasion.all
     @categories=Category.all
   end
-  def current_cart 
-      Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-      cart = Cart.create
-      session[:cart_id] = cart.id
-      cart
+
+  def current_cart
+    Cart.find(session[:cart_id])
+  rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
     end
 end
