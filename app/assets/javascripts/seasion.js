@@ -122,3 +122,10 @@ $(document).on("click","#update_seasion",function(event){
 	$("#update_seasion").attr("seasion_id","");
 	$("#save_seasion").attr("disabled",false);
  }  
+
+ // $('input[type=checkbox]').each(function() {
+   // alert("sdffdf");
+ // });
+$.each("input[type='checkbox']").on("click",function(){
+	alert("hello i am clicked");
+});

@@ -7,38 +7,37 @@
     <%@categories=Category.where(status: true)%>
     <%@seasions=Seasion.where(status: true)%>
     <%@colors=Color.where(status: true)%>
- <div class="simple">Brands (<%=@brands.count%>)</div>
-     	<ul class="sidebar">
-     		<%unless @brands.blank?%>
-     		<%@brands.each do |b|%>
-     		<li><%=check_box_tag "brand_id",b.id%> <%=b.name.capitalize%></li>     		
-     		<%end%>
-     		<%end%>
-     	</ul>
-  <div class="simple">Categories (<%=@categories.count%>)</div>    	
-     	<ul class="sidebar">
-     		<%unless @categories.blank?%>
-     		<%@categories.each do |b|%>
-     		<li><%=check_box_tag "brand_id",b.id%> <%=b.name.capitalize%></li>     		
-     		<%end%>
-     		<%end%>
-     	</ul>
- <div class="simple">Seasions (<%=@seasions.count%>)</div>    	
-     	<ul class="sidebar">
-     		<%unless @seasions.blank?%>
-     		<%@seasions.each do |b|%>
-     		<li><%=check_box_tag "brand_id",b.id%> <%=b.name.capitalize%></li>     		
-     		<%end%>
-     		<%end%>
-     	</ul>
- <div class="simple">Cost</div>    	
-     	<ul class="sidebar">
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		<li>List A</li>
-     		
-     	</ul>    	
-     	
+ 
+<ul class="nav nav-list">
+	<li class="nav-header">
+		Brands (<%=@brands.count%>)
+	</li>
+	<%unless @brands.blank?%>
+	  <%@brands.each do |brand|%>
+	  <li><%=check_box_tag "brand_id",brand.id%> <%=brand.name.capitalize%></li>   
+	 <%end%>
+	<%end%>	
+</ul>
+<ul class="nav nav-list">
+	<li class="nav-header">
+		Categories (<%=@categories.count%>)
+	</li>
+	<%unless @categories.blank?%>
+	  <%@categories.each do |cat|%>	  
+		<li><%=check_box_tag "cat_id",cat.id%> <%=cat.name.capitalize%></li>  
+	 
+	 <%end%>
+	<%end%>	
+</ul>
+<ul class="nav nav-list">
+	<li class="nav-header">
+		Seasions (<%=@seasions.count%>)
+	</li>
+	<%unless @seasions.blank?%>
+	  <%@seasions.each do |sea|%>
+	  <li><%=check_box_tag "sea_id",sea.id%> <%=sea.name.capitalize%></li> 
+	 <%end%>
+	<%end%>	
+</ul>
+
+<br/>

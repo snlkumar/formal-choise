@@ -61,3 +61,8 @@ $('#menu > ul').superfish({
 	arrowClass: false,
 	autoArrows:  true
 });
+
+
+$.each("input[type='checkbox']").on("click",function(){
+	alert("hello i am clicked");
+});
