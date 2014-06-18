@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+   before_filter :activate_user
   def index
     @orders = Order.paginate page: params[:page], order: 'created_at desc',
       per_page: 10

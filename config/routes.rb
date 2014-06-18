@@ -30,7 +30,12 @@ FormalChoise::Application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
-  resources :buyers
+  resources :buyers do
+    collection do
+      get :cart,:orders,:checkout,:clear_cart
+      post :cart
+    end
+  end
   resources :images
   resources :brands
   resources :categories

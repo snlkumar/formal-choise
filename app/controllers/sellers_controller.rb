@@ -1,4 +1,5 @@
 class SellersController < ApplicationController
+   before_filter :activate_user
   def new
     @seller=Seller.new
      @seller.build_user

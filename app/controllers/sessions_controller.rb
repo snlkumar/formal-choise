@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   # skip_before_filter :require_no_authentication
+  before_filter :activate_user
   def new   
   super 
   end

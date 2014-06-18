@@ -29,7 +29,7 @@
 			<strong>Tags:</strong><span><%= @product.tags.count%></span>
 			<br>
 		</address>
-		<%= link_to "Add To Cart", line_items_path(product_id: @product.id),method: "POST",class: "btn btn-danger" %>
+		<%= link_to "Add To Cart", cart_buyers_path(product_id: @product.id),method: "POST",class: "btn btn-danger" %>
 	</div>
 </div>
 <div class="row">

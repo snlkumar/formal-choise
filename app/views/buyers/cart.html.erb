@@ -1,0 +1,53 @@
+
+    <% if @order.present?%>
+    <table class="table table-striped">
+    	<tr>
+    		<th>S.No.</th>
+    		<th>Order item</th>
+    		<th>Quantity</th>
+    		<th>Unit price</th>
+    		<th>Total price</th>
+    	</tr>
+    	<% @order.order_items.each_with_index do |order_item, index|%>
+    	 <tr>
+    	 	<td><%=index+1%></td>
+    	 	<td><%=order_item.product.name%></td>
+    	 	<td><%=order_item.quantity%></td>
+    	 	<td><%=(order_item.unit_price.price)%></td>
+    	 	<td><%=(order_item.sub_total)%></td>
+    	 </tr>
+    	<%end%>
+    	<tr>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+    		<th>Sub total</th>
+    		<th><%=(@order.sub_totals)%></th>
+    	</tr>
+    	<tr>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+    		<th>Tax price (21%)</th>
+    		<th><%=@order.tax_amount%></th>
+    	</tr>
+    	<tr>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+    		<th>Total price</th>
+    		<th><%=(@order.grant_total) + @order.tax_amount%></th>
+    	</tr>
+    </table>
+      <!-- 
+      = form_for :order, url: user_checkout_path, method: "post" do |f|
+        = f.hidden_field :order_amount, value: @order.grant_total
+        = f.hidden_field :tax_price, value: @order.tax_price
+        .pull-right= f.submit "Confirm order", class: "btn btn-success" -->
+    <%else%>
+    <div class="alert alert-danger">
+    	<p> Oh snap! currently orders are unavailable for listing.</p>
+    </div>
+      
+     <%end%>
+

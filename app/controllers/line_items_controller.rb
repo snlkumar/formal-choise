@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+   before_filter :activate_user
   def index
     @line_items = LineItem.all
 
@@ -45,7 +46,7 @@ class LineItemsController < ApplicationController
     @line_item = @cart.add_product(product.id)   
     @line_item.save
     if current_user
-    render partial: "/carts/cart"
+    render "/carts/cart"
     else
       redirect_to new_buyer_path
     end   

@@ -14,14 +14,22 @@ class ApplicationController < ActionController::Base
     else
       if current_user.seller || current_user.admin
         'application'
-      else
-        'slate'
+      else if current_user.buyer
+          puts "i am in application slate"
+          'slate'
+        end
       end
     end
   end
 
   def admin_reseller_required
 
+  end
+
+  def buyer_required
+    unless current_user
+      redirect_to new_buyer_path
+    end
   end
 
   def login_required
