@@ -14,9 +14,8 @@ class ApplicationController < ActionController::Base
     else
       if current_user.seller || current_user.admin
         'application'
-      else if current_user.buyer
-          puts "i am in application slate"
-          'slate'
+      else if current_user.buyer          
+          'buyer'
         end
       end
     end

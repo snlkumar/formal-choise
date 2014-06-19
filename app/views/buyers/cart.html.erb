@@ -44,6 +44,7 @@
         = f.hidden_field :order_amount, value: @order.grant_total
         = f.hidden_field :tax_price, value: @order.tax_price
         .pull-right= f.submit "Confirm order", class: "btn btn-success" -->
+        <a href="<%=root_path%>" class="btn btn-primary">Continue Shopping</a>
     <%else%>
     <div class="alert alert-danger">
     	<p> Oh snap! currently orders are unavailable for listing.</p>
