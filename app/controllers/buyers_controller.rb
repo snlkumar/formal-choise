@@ -47,7 +47,7 @@ class BuyersController < ApplicationController
         end
       end
     end    
-    render layout: "user"
+    render layout: "user_cart"
   end
 
   def clear_cart
